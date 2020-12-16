@@ -1,0 +1,39 @@
+{
+    "name": "flagbit/oxid-transaction-mail-extender",
+    "description": "Extends Oxid transaction mails with a Schema.org conform HTML content",
+    "type": "oxideshop-module",
+    "keywords": ["oxid", "modules", "eShop"],
+    "authors": [
+        {
+            "name": "Flagbit GmbH & Co KG",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "flagbit/schemaorg-email-body": "^0.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "phpstan/phpstan": "^0.12.57"
+    },
+    "autoload": {
+        "psr-4": {
+            "EinsUndEins\\TransactionMailExtenderModule\\": "../../../source/modules/1und1/1und1transactionmailextender"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EinsUndEins\\TransactionMailExtenderModule\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "oxideshop": {
+            "blacklist-filter": [
+                "README.md",
+                "build/*"
+            ],
+            "target-directory": "oe/oepaypal"
+        }
+    }
+}
