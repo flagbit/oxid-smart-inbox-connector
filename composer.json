@@ -33,7 +33,7 @@
                 "README.md",
                 "build/*"
             ],
-            "target-directory": "oe/oepaypal"
+            "target-directory": "flagbit/oxid-transaction-mail-extender"
         }
     }
 }
