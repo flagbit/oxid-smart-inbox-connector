@@ -1,3 +1,3 @@
-[{schemaorg attr1='val1'}]
+[{schemaorg order=$order}]
 
 [{$smarty.block.parent}]
