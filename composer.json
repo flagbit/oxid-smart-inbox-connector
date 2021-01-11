@@ -30,7 +30,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "EinsUndEins\\TransactionMailExtenderModule\\Tests\\": "tests/"
+            "EinsUndEins\\TransactionMailExtenderModule\\Tests\\": "tests/",
+            "EinsUndEins\\TransactionMailExtenderModule\\": "."
         }
     },
     "scripts": {
