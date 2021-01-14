@@ -2,11 +2,11 @@
 
 namespace EinsUndEins\TransactionMailExtenderModule\Tests\Renderer;
 
-use EinsUndEins\TransactionMailExtenderModule\Database\Shop;
 use EinsUndEins\TransactionMailExtenderModule\Renderer\SchemaRenderer;
 use EinsUndEins\TransactionMailExtenderModule\Status\MappingInterface;
 use OxidEsales\EshopCommunity\Application\Model\DeliverySet;
 use OxidEsales\EshopCommunity\Application\Model\Order;
+use OxidEsales\EshopCommunity\Application\Model\Shop;
 use PHPUnit\Framework\TestCase;
 
 class SchemaRendererTest extends TestCase
@@ -30,10 +30,10 @@ class SchemaRendererTest extends TestCase
         $order->method('getDelSet')
             ->willReturn($delivery);
 
-        $shopDbTable = $this->createMock(Shop::class);
-        $shopDbTable->expects(self::once())
-            ->method('fetchNameById')
-            ->with(1)
+        $shop = $this->createMock(Shop::class);
+        $shop->expects(self::once())
+            ->method('getFieldData')
+            ->with('oxshops__oxname')
             ->willReturn('shopName');
 
         $statusMapping = $this->createMock(MappingInterface::class);
@@ -41,7 +41,7 @@ class SchemaRendererTest extends TestCase
             ->with($order)
             ->willReturn('OrderProblem');
 
-        $schemaRenderer = new SchemaRenderer($shopDbTable, $statusMapping);
+        $schemaRenderer = new SchemaRenderer($statusMapping);
 
         $expected = <<<DOC
 <div itemscope itemtype="http://schema.org/Order">
@@ -65,6 +65,6 @@ class SchemaRendererTest extends TestCase
 </div>
 DOC;
 
-        self::assertSame($expected, $schemaRenderer->render($order));
+        self::assertSame($expected, $schemaRenderer->render($order, $shop));
     }
 }

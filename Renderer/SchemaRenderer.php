@@ -6,35 +6,29 @@ use EinsUndEins\SchemaOrgMailBody\Model\Order as SchemaOrder;
 use EinsUndEins\SchemaOrgMailBody\Model\ParcelDelivery;
 use EinsUndEins\SchemaOrgMailBody\Renderer\OrderRenderer;
 use EinsUndEins\SchemaOrgMailBody\Renderer\ParcelDeliveryRenderer;
-use EinsUndEins\TransactionMailExtenderModule\Database\Shop;
 use EinsUndEins\TransactionMailExtenderModule\Status\MappingInterface;
 use OxidEsales\EshopCommunity\Application\Model\DeliverySet;
 use OxidEsales\EshopCommunity\Application\Model\Order;
+use OxidEsales\EshopCommunity\Application\Model\Shop as ShopModel;
 
 class SchemaRenderer implements RendererInterface
 {
-    /**
-     * @var Shop
-     */
-    private $shopDbTable;
-
     /**
      * @var MappingInterface
      */
     private $statusMapping;
 
-    public function __construct(Shop $shopDbTable, MappingInterface $statusMapping)
+    public function __construct(MappingInterface $statusMapping)
     {
-        $this->shopDbTable = $shopDbTable;
         $this->statusMapping = $statusMapping;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function render(Order $order): string
+    public function render(Order $order, ShopModel $shop): string
     {
-        $schemaOrder = $this->oxidOrderToSchemaOrder($order);
+        $schemaOrder = $this->oxidOrderToSchemaOrder($order, $shop);
         $result = (new OrderRenderer($schemaOrder))->render();
 
         /** @var DeliverySet $deliverSet */
@@ -47,11 +41,11 @@ class SchemaRenderer implements RendererInterface
         return $result;
     }
 
-    private function oxidOrderToSchemaOrder(Order $order): SchemaOrder
+    private function oxidOrderToSchemaOrder(Order $order, ShopModel $shop): SchemaOrder
     {
         $status = $this->statusMapping->getValueBy($order);
 
-        $shopName = $this->shopDbTable->fetchNameById($order->getShopId());
+        $shopName = $shop->getFieldData('oxshops__oxname');
         $orderNumber = $order->getFieldData('oxorder__oxordernr');
 
         return new SchemaOrder($orderNumber, $status, $shopName);

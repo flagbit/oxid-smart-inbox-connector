@@ -1,3 +1,3 @@
-[{schemaorg order=$order}]
+[{schemaorg order=$order shop=$shop}]
 
 [{$smarty.block.parent}]
