@@ -18,11 +18,9 @@ $aModule = [
     'email'        => 'info@flagbit.de',
     'blocks' => [
         ['template' => 'email/html/order_cust.tpl', 'block'=>'email_html_order_cust_orderemail', 'file'=>'/views/block/email/html/order_schema.tpl'],
+        ['template' => 'email/html/ordershipped.tpl', 'block'=>'email_html_ordershipped_infofooter', 'file'=>'/views/block/email/html/order_schema.tpl'],
     ],
     'smartyPluginDirectories' => [
         '/Renderer/Smarty/',
     ],
-//    'controllers' => [
-//        '1und1transactionmailextender_index' => \OxidEsales\PayPalModule\Controller\ExpressCheckoutDispatcher::class,
-//    ],
 ];
