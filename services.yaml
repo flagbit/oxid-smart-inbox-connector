@@ -1,0 +1,17 @@
+services:
+  einsundeins.oxid_transaction_mail_extender.renderer.schema_renderer:
+    class: EinsUndEins\TransactionMailExtenderModule\Renderer\SchemaRenderer
+    public: true
+    autowire: true
+
+  EinsUndEins\TransactionMailExtenderModule\Renderer\RendererInterface:
+    alias: einsundeins.oxid_transaction_mail_extender.renderer.schema_renderer
+    public: false
+
+  EinsUndEins\TransactionMailExtenderModule\Status\Mapping:
+    public: false
+    autowire: true
+
+  EinsUndEins\TransactionMailExtenderModule\Status\MappingInterface:
+    alias: EinsUndEins\TransactionMailExtenderModule\Status\Mapping
+    public: false
