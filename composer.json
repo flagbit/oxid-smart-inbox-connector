@@ -2,6 +2,7 @@
     "name": "flagbit/oxid-transaction-mail-extender",
     "description": "Extends Oxid transaction mails with a Schema.org conform HTML content",
     "type": "oxideshop-module",
+    "license": "MIT",
     "keywords": [
         "oxid",
         "modules",
