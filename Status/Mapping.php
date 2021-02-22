@@ -39,10 +39,6 @@ class Mapping implements MappingInterface
             return 'OrderDelivered';
         }
 
-        if (! $isPaid && $isSend) {
-            return 'OrderPaymentDue';
-        }
-
         if ($isSend) {
             return 'OrderInTransit';
         }
