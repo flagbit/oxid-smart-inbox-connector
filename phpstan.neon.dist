@@ -7,3 +7,4 @@ parameters:
         - "%currentWorkingDirectory%/translations"
         - "%currentWorkingDirectory%/vendor"
         - "%currentWorkingDirectory%/.github"
+        - "%currentWorkingDirectory%/source"

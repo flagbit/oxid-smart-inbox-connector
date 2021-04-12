@@ -1,4 +1,4 @@
-# oxid-transaction-mail-extender
+# 1&1 Oxid Smart Inbox Connector
 
 Extends Oxid transaction mails with a Schema.org conform HTML content
 
@@ -12,5 +12,5 @@ Extends Oxid transaction mails with a Schema.org conform HTML content
 Require the module with composer
 
 ```
-composer require flagbit/oxid-transaction-mail-extender
+composer require flagbit/oxid-smart-inbox-connector
 ```
