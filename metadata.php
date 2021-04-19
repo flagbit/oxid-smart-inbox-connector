@@ -3,10 +3,10 @@
 $sMetadataVersion = '2.1';
 
 $aModule = [
-    'id'           => '1und1transactionmailextender',
+    'id'           => '1und1oxidsmartinboxconnector',
     'title'        => [
-        'de' => '1&1 Transaction Mail Extender',
-        'en' => '1&1 Transaction Mail Extender',
+        'de' => '1&1 Oxid Smart Inbox Connector',
+        'en' => '1&1 Oxid Smart Inbox Connector',
     ],
     'thumbnail'    => 'logo.png',
     'description'  => [

@@ -1,5 +1,5 @@
 {
-    "name": "flagbit/oxid-transaction-mail-extender",
+    "name": "flagbit/oxid-smart-inbox-connector",
     "description": "Extends Oxid transaction mails with a Schema.org conform HTML content",
     "type": "oxideshop-module",
     "license": "MIT",
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "EinsUndEins\\TransactionMailExtenderModule\\": "../../../source/modules/flagbit/oxid-transaction-mail-extender"
+            "EinsUndEins\\TransactionMailExtenderModule\\": "../../../source/modules/flagbit/oxid-smart-inbox-connector"
         }
     },
     "autoload-dev": {
@@ -49,7 +49,7 @@
                 "README.md",
                 "build/*"
             ],
-            "target-directory": "flagbit/oxid-transaction-mail-extender"
+            "target-directory": "flagbit/oxid-smart-inbox-connector"
         }
     }
 }
